@@ -14,12 +14,15 @@ let limonY=10;
 let puntaje = 0;
 let vidas = 3;
 let velocidadCaida = 200;
+let intervalo;
 
 function iniciar(){
-    setInterval(bajarLimon,velocidadCaida);  //1. Funcion 2. Tiempo en milisegundos
+    intervalo = setInterval(bajarLimon,velocidadCaida);  //1. Funcion 2. Tiempo en milisegundos
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
+    if(vidas==0){
+    }
 }
 
 function actualizarPantalla(){
@@ -75,12 +78,15 @@ function detectarAtrapado(){
         puntaje = puntaje+1;
         mostrarEnSpan("txtPuntaje",puntaje);
         if(puntaje==3){
+            actualizarVelocidad();
             velocidadCaida = 150;
         }
         if(puntaje==6){
+            actualizarVelocidad();
             velocidadCaida = 100;
         }
         if(puntaje==10){
+            clearInterval(intervalo);
             alert("GANADOR");
             alert("Ya tienes limones ahora limpia el microondas");
         }
@@ -99,7 +105,13 @@ function detectarPiso(){
         vidas = vidas-1
         mostrarEnSpan("txtVidas",vidas);
         if(vidas==0){
+            clearInterval(intervalo);
             alert("GAME OVER");
         }
     }
+}
+
+function actualizarVelocidad(){
+    clearInterval(intervalo);
+    intervalo = setInterval(bajarLimon, velocidadCaida);
 }
