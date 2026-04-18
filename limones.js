@@ -21,8 +21,6 @@ function iniciar(){
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
-    if(vidas==0){
-    }
 }
 
 function actualizarPantalla(){
