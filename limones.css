@@ -103,70 +103,142 @@ canvas {
   margin-top: 25px;
 }
 
+/* BOTÓN BASE */
 .botones button {
   position: relative;
-  margin: 10px;
-  padding: 14px 24px;
+  margin: 12px;
+  padding: 16px 26px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 900;
   letter-spacing: 2px;
-
-  color: #f3f4f6;
-  background: linear-gradient(145deg, #2b2b2b, #050505);
-
-  border: 2px solid #7f1d1d;
-  border-radius: 4px;
-  cursor: pointer;
-
   text-transform: uppercase;
 
+  color: #f9fafb;
+  background: linear-gradient(180deg, #1a1a1a, #000000);
+
+  border: 2px solid #7f1d1d;
+  border-radius: 3px;
+  cursor: pointer;
+
   box-shadow:
-    inset 0 0 8px rgba(0,0,0,1),
-    0 4px 0 #3f0d0d,
-    0 8px 15px rgba(0,0,0,1);
+    inset 0 0 10px rgba(0,0,0,1),
+    0 5px 0 #3f0d0d,
+    0 10px 20px rgba(0,0,0,1);
 
   transition: all 0.15s ease;
+  overflow: hidden;
 }
 
-/* EFECTO TECNOLÓGICO */
+/* BORDE INTERNO TECNOLÓGICO */
 .botones button::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 2px;
+  border: 1px solid rgba(220,38,38,0.4);
+  pointer-events: none;
+}
+
+/* LUZ ROJA (EFECTO ENERGÍA) */
+.botones button::after {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 60%;
+  height: 100%;
   background: linear-gradient(
-    90deg,
+    120deg,
     transparent,
-    rgba(220,38,38,0.3),
+    rgba(220,38,38,0.5),
     transparent
   );
-  opacity: 0.4;
+}
+
+/* ANIMACIÓN DE ENERGÍA */
+.botones button:hover::after {
+  left: 140%;
+  transition: 0.4s;
 }
 
 /* HOVER */
 .botones button:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(145deg, #3f0d0d, #111111);
+  transform: translateY(-4px);
 
   box-shadow:
-    0 6px 0 #3f0d0d,
-    0 12px 20px rgba(0,0,0,1),
-    0 0 10px rgba(220,38,38,0.6);
+    0 8px 0 #3f0d0d,
+    0 15px 25px rgba(0,0,0,1),
+    0 0 12px rgba(220,38,38,0.8);
+
+  border-color: #dc2626;
 }
 
-/* CLICK */
+/* CLICK (IMPACTO PESADO) */
 .botones button:active {
-  transform: translateY(3px);
+  transform: translateY(4px);
+
   box-shadow:
-    inset 0 0 10px rgba(0,0,0,1),
+    inset 0 0 15px rgba(0,0,0,1),
     0 2px 0 #3f0d0d;
 }
 
-/* BOTÓN REINICIAR */
+/* EFECTO "REMACHES" LATERALES */
+.botones button span {
+  position: relative;
+}
+
+.botones button span::before,
+.botones button span::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #7f1d1d;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.botones button span::before {
+  left: -12px;
+}
+
+.botones button span::after {
+  right: -12px;
+}
+
+/* BOTÓN REINICIAR MÁS AGRESIVO */
 .botones .reset {
+  background: linear-gradient(180deg, #3b0a0a, #000000);
   border: 2px solid #991b1b;
-  background: linear-gradient(145deg, #450a0a, #1a0000);
 }
 
 .botones .reset:hover {
-  background: linear-gradient(145deg, #7f1d1d, #2b0a0a);
+  box-shadow:
+    0 8px 0 #450a0a,
+    0 15px 25px rgba(0,0,0,1),
+    0 0 15px rgba(255,0,0,0.9);
+}
+
+.logo40k {
+  display: block;
+  margin: 0 auto 20px auto;
+
+  width: 300px;
+  max-width: 70%;
+
+  mix-blend-mode: screen;
+  opacity: 0.95;
+
+  animation: brilloImperial 3s infinite alternate;
+}
+
+@keyframes brilloImperial {
+  from {
+    filter: drop-shadow(0 0 8px gold)
+            drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
+  }
+  to {
+    filter: drop-shadow(0 0 25px orange)
+            drop-shadow(0 0 40px rgba(255, 0, 0, 0.7));
+  }
 }
