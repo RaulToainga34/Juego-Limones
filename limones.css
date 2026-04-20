@@ -1,31 +1,109 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
   color: white;
   text-align: center;
-  margin: 0;
   padding: 20px;
 }
 
+/* Contenedor principal */
 .contenedor {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 900px;
+  margin: auto;
 }
 
+/* Header */
+.header h1 {
+  font-size: 42px;
+  color: #facc15;
+  text-shadow: 0 0 10px rgba(250, 204, 21, 0.6);
+}
+
+.subtitulo {
+  color: #cbd5f5;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.autor {
+  font-size: 16px;
+  color: #94a3b8;
+  margin-bottom: 20px;
+}
+
+/* Canvas */
 canvas {
-  background-color: #111827;
-  border: 3px solid #38bdf8;
+  background: radial-gradient(circle, #1f2937, #020617);
+  border: 4px solid #38bdf8;
+  border-radius: 15px;
   display: block;
   margin: 20px auto;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
 }
 
+/* Panel de puntaje */
 .panel {
-  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0;
+}
+
+.card {
+  background: #1e293b;
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  min-width: 120px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.card span {
+  font-size: 28px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+/* Botones */
+.botones {
+  margin-top: 20px;
 }
 
 .botones button {
-  margin: 5px;
-  padding: 10px 16px;
+  margin: 8px;
+  padding: 12px 20px;
   font-size: 16px;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: white;
+  transition: all 0.2s ease;
+}
+
+/* Hover animación */
+.botones button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
+}
+
+/* Botón reiniciar especial */
+.botones .reset {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.botones .reset:hover {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.7);
 }
